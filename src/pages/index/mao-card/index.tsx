@@ -9,19 +9,21 @@ export default function MaoCard(props) {
   const { maoList, setActiveMao } = props;
 
   return (
-    <View>
+    <View className='mao-card-list'>
       {maoList.map(item => {
         return (
           <View
-            className='cardWrap'
+            className='card-wrap'
             key={item.mao_id}
             onClick={() => setActiveMao(item)}
           >
-            <Image src={item.imgUrl} />
-            <Text>{item.name}</Text>
-            <Text>{item.birthday}</Text>
-            <Text>{item.feature}</Text>
-            <Text>{item.description}</Text>
+            <Image className='card-img' src={item.imgUrl} />
+            <Text className='mao-data'>
+              <Text className='data-item'>姓名：{item.name}</Text>
+              <Text className='data-item'>出生：{item.birthday}</Text>
+              <Text className='data-item'>特点：{item.feature}</Text>
+              <Text className='data-item'>描述：{item.description}</Text>
+            </Text>
           </View>
         );
       })}

@@ -13,9 +13,8 @@ export default function Index() {
   const [activeMao, setActiveMao] = useState<any>();
 
   useEffect(() => {
-    console.log('activeMao', activeMao);
-    
-  }, [activeMao])
+    console.log("activeMao", activeMao);
+  }, [activeMao]);
 
   useEffect(() => {
     getMaoData();
@@ -45,14 +44,16 @@ export default function Index() {
   };
 
   return (
-    <>
+    <View className='wrapper'>
       {!activeMao && (
         <View>
-          <Text onClick={() => getMaoData()}>我用 Hooks</Text>
+          {/* <Text onClick={() => getMaoData()}>我用 Hooks</Text> */}
           <MaoCard maoList={maoList} setActiveMao={setActiveMao} />
         </View>
       )}
-      {activeMao && <MaoDetail activeMao={activeMao} />}
-    </>
+      {activeMao && (
+        <MaoDetail activeMao={activeMao} setActiveMao={setActiveMao} />
+      )}
+    </View>
   );
 }
